@@ -13,7 +13,7 @@ class Settings(BaseSettings):
 
     VK_TOKEN: str  # токен пользователя - админа
 
-    subreddit_name: str
+    SUBREDDIT_NAME: str
 
     @validator("OWNER_ID", always=True, pre=True)
     def validate_owner_id(cls, v):

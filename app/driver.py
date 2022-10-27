@@ -4,7 +4,7 @@ from config import settings
 
 
 def drive():
-    posts = get_posts(settings.subreddit_name)
+    posts = get_posts(settings.SUBREDDIT_NAME)
     posts_count = len(posts)
     fail = ""
 
