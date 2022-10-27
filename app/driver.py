@@ -8,10 +8,12 @@ def drive():
     posts_count = len(posts)
     fail = ""
 
+    print("\n")
     for index, post in enumerate(posts):
         result = post_meme(post=post, hours_delta=index)
         if "post_id" in result.get("response"):
             print(
+                f"VK Posting: "
                 f"{post.title, post.url_overridden_by_dest} - SUCCESS ({index}/{posts_count})"
             )
         else:
@@ -19,3 +21,5 @@ def drive():
 
     if fail:
         print(f"FAILS:\n{fail}")
+
+    print("\n")
