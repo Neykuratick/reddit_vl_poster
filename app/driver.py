@@ -1,9 +1,10 @@
 from app.reddit import get_posts
 from app.vk import post_meme
+from config import settings
 
 
 def drive():
-    posts = get_posts("dankmemes")
+    posts = get_posts(settings.subreddit_name)
     posts_count = len(posts)
     fail = ""
 

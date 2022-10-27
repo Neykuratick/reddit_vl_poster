@@ -13,6 +13,8 @@ class Settings(BaseSettings):
 
     VK_TOKEN: str  # токен пользователя - админа
 
+    subreddit_name: str
+
     @validator("OWNER_ID", always=True, pre=True)
     def validate_owner_id(cls, v):
         # owner_id должен быть равен community_id, только с минусом в начале
