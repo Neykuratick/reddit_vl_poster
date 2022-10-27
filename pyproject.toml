@@ -8,6 +8,7 @@ authors = ["Neykuratick <neykuratick@yahoo.com>"]
 python = "^3.10"
 requests = "*"
 pydantic = {extras = ["dotenv"], version = "^1.10.2"}
+APScheduler = "^3.9.1"
 
 [tool.poetry.dev-dependencies]
 
