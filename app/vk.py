@@ -41,6 +41,10 @@ def upload_photo(photo: bytes):
 
 def post_meme(post: RedditPost, hours_delta: int) -> dict:
     response = upload_photo(post.media_bytes)
+    if not response.get("response"):
+        print(f'No response: {response=}')
+        quit()
+
     data = response.get("response")[0]
     owner_id = data.get("owner_id")
     photo_id = data.get("id")

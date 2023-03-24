@@ -10,6 +10,9 @@
 - `$ pip install -r requirements.txt` or `$ pip install requests "pydantic[dotenv]"`
 - `$ python main.py`
 
+Пример как можно запускать в кроне
+`0 8 * * * /root/reddit_vk_poster/venv/bin/python /root/reddit_vk_poster/main.py >> /root/reddit_vk_poster/latest.log`
+
 ## TODO:
 - Выбор сабреддита
 - Умная лента (мемы из разных сабреддитов)

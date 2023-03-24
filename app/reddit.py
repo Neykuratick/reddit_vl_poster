@@ -50,7 +50,8 @@ class RedditPost(BaseModel):
 
         result = requests.get(url, stream=True)
         if isinstance(result.content, bytes):
-            return result.content
+            if not b'html' in result.content:
+                return result.content
 
         raise ValueError(f"Media bytes are empty. {result.text=} {result.content=}")
 
@@ -64,7 +65,12 @@ def get_posts(subreddit) -> List[RedditPost]:
     hint_whitelist = [PostHints.IMAGE, PostHints.UNKNOWN]
 
     for post in posts_raw[1:]:
-        post_model = RedditPost(**post.get("data"))
+        try:
+            post_model = RedditPost(**post.get("data"))
+        except ValueError as e:
+            print(f'Error: {e}')
+            continue
+
         if post_model.post_hint in hint_whitelist:
             result.append(post_model)
 
